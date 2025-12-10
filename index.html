@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas Finance Bank - Digital Banking You Can Believe In</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="light-mode">
+    <header class="navbar">
+        <div class="logo">Veritas Finance</div>
+        <nav class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#security">Security</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        
+        <div class="nav-actions">
+            <label class="toggle-switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+                <i class="fas fa-sun light-icon"></i>
+                <i class="fas fa-moon dark-icon"></i>
+            </label>
+            <a href="login.html">
+            <button class="cta-button primary">Open Account</button>
+            </a>
+        </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="animate-in">Digital Banking You Can Believe In.</h1>
+                <p class="animate-in delay-1">Veritas Finance: Banking on the principle of truth. Experience clear, secure, and modern financial management from anywhere in the world.</p>
+                <div class="hero-buttons animate-in delay-2">
+                    <a href="login.html">
+                    <button class="cta-button primary">Get Started Now</button>
+                    </a>
+                    <button class="cta-button secondary">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="padlock-container">
+                    <i id="padlock" class="fas fa-lock padlock-icon"></i>
+                    <p class="security-text">100% Secure</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section scroll-animate">
+            <h2>Core Features</h2>
+            <p class="section-subtitle">Manage your money smarter, not harder.</p>
+            <div class="feature-grid">
+                <div class="feature-card animate-up">
+                    <i class="fas fa-lock icon-blue"></i>
+                    <h3>Ironclad Security</h3>
+                    <p>Advanced encryption and 2-factor authentication keep your money safe, 24/7.</p>
+                </div>
+                <div class="feature-card animate-up">
+                    <i class="fas fa-mobile-alt icon-blue"></i>
+                    <h3>Seamless Mobile Access</h3>
+                    <p>Access and manage all your accounts, payments, and transfers on the go with our sleek app.</p>
+                </div>
+                <div class="feature-card animate-up">
+                    <i class="fas fa-chart-line icon-blue"></i>
+                    <h3>Clear Spending Insights</h3>
+                    <p>Automatic categorization helps you see exactly where your money goes, making budgeting simple.</p>
+                </div>
+                <div class="feature-card animate-up">
+                    <i class="fas fa-exchange-alt icon-blue"></i>
+                    <h3>Instant Transfers</h3>
+                    <p>Send money instantly to friends, family, or businesses with zero hassle and competitive rates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="why-us-section scroll-animate">
+            <div class="why-us-content">
+                <h2>Why Choose Veritas Finance?</h2>
+                <div class="detail-point">
+                    <i class="fas fa-handshake icon-white"></i>
+                    <div>
+                        <h3>The Principle of Truth</h3>
+                        <p>We are committed to 100% transparency. No hidden fees, no confusing terms. What you see is what you get.</p>
+                    </div>
+                    </div>
+                <div class="detail-point">
+                    <i class="fas fa-headset icon-white"></i>
+                    <div>
+                        <h3>Dedicated Support</h3>
+                        <p>Real people, ready to help. Get instant support through our app chat or call line, 7 days a week.</p>
+                    </div>
+                </div>
+                <div class="detail-point">
+                    <i class="fas fa-leaf icon-white"></i>
+                    <div>
+                        <h3>Sustainable Banking</h3>
+                        <p>We invest ethically. Your money supports a greener, more sustainable financial future.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="why-us-image">
+                <i class="fas fa-check-circle large-check-icon"></i>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section scroll-animate">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card animate-up">
+                    <p>"Finally, a bank that doesn't feel like a bank. The clarity of their statements is unmatched. I feel in control of my money."</p>
+                    <p class="testimonial-author">**— Sarah L., Freelancer**</p>
+                </div>
+                <div class="testimonial-card animate-up">
+                    <p>"The security features are top-notch, and the dark mode is a lifesaver for late-night budgeting. Highly recommend Veritas Finance."</p>
+                    <p class="testimonial-author">**— James D., Small Business Owner**</p>
+                </div>
+                <div class="testimonial-card animate-up">
+                    <p>"Switching was seamless. Their instant chat support resolved my questions in minutes. Truly modern banking."</p>
+                    <p class="testimonial-author">**— Mike H., Tech Enthusiast**</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="final-cta-footer">
+        <h2>Ready to Experience Truth in Banking?</h2>
+        <p>Join thousands who trust us with their financial future.</p>
+        <button class="cta-button primary large">Open Your Veritas Account Today</button>
+        <div class="footer-links">
+            <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Security</a>
+        </div>
+        <p class="copyright">&copy; 2025 Veritas Finance Bank. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. Dark Mode Toggle Logic (Same as before) ---
+    const toggleSwitch = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme) {
+        body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+            toggleSwitch.checked = true;
+        }
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        body.classList.add('dark-mode');
+        toggleSwitch.checked = true;
+    } else {
+        body.classList.add('light-mode');
+    }
+
+    toggleSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+
+    // --- 2. Scroll Animation Logic ---
+
+    // Function to check if an element is in the viewport
+    const isElementInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 100 && // +100 gives a little buffer
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+
+    // Function to handle the animation on scroll
+    const handleScrollAnimation = () => {
+        // General scroll-animate sections
+        const sections = document.querySelectorAll('.scroll-animate');
+        sections.forEach(section => {
+            if (isElementInViewport(section)) {
+                section.classList.add('active');
+            }
+        });
+
+        // Specific animation for feature cards (staggered up-slide)
+        const featureCards = document.querySelectorAll('.feature-card.animate-up');
+        featureCards.forEach(card => {
+            if (isElementInViewport(card)) {
+                card.classList.add('active');
+            }
+        });
+    };
+
+    // Attach the scroll handler
+    window.addEventListener('scroll', handleScrollAnimation);
+    // Run it once on load to catch elements already in view
+    handleScrollAnimation();
+});
+
+    </script>
+</body>
+</html>

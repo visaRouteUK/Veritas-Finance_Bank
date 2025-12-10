@@ -1,0 +1,232 @@
+/* --- Root Variables for Colors --- */
+:root {
+    --color-primary: #007bff; /* Bright Blue */
+    --color-secondary: #0056b3; /* Darker Blue */
+    --color-background: #ffffff; /* White */
+    --color-text: #333333; /* Dark Grey Text */
+    --color-card-bg: #f8f9fa; /* Off-White for Cards */
+    --color-border: #eeeeee;
+}
+
+/* --- Dark Mode Variables --- */
+body.dark-mode {
+    --color-primary: #4da6ff; 
+    --color-secondary: #007bff; 
+    --color-background: #121212; 
+    --color-text: #f0f0f0; 
+    --color-card-bg: #1e1e1e; 
+    --color-border: #333333;
+}
+
+/* --- General & Navbar (Simplified) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: background-color 0.5s, color 0.5s;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-background);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* --- CTA Button Styling (Same as before) --- */
+.cta-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: var(--color-primary);
+    color: white;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.cta-button:hover {
+    background-color: var(--color-secondary);
+}
+
+/* --- Dark Mode Toggle Switch (Same as before) --- */
+/* (Toggle switch related styles omitted for brevity, assume they are present) */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+/* ... (Rest of toggle switch styles) ... */
+
+/* --- Main Authentication Container --- */
+.auth-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: var(--color-card-bg);
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--color-background);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--color-border);
+    overflow: hidden; /* Important for animation */
+}
+
+/* --- Toggle Header (Register/Login Buttons) --- */
+.toggle-header {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-primary);
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    background-color: transparent;
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* --- Form Styling --- */
+.auth-form {
+    display: none;
+    flex-direction: column;
+    position: relative;
+}
+
+.auth-form.active-form {
+    display: flex;
+}
+
+.auth-form h2 {
+    font-size: 1.8rem;
+    color: var(--color-secondary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .input-group {
+    border-color: #333;
+}
+
+.input-group:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.input-group i {
+    color: var(--color-primary);
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    padding: 5px 0;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--color-text);
+    outline: none;
+}
+
+.form-footer, .forgot-password {text-align: center;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.form-footer a, .forgot-password a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.form-footer a:hover, .forgot-password a:hover {
+    opacity: 0.8;
+}
+
+/* --- Animations --- */
+
+/* 1. Auth Box Initial Scale Animation */
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.auth-box.animate-scale {
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 2. Slide Animation for form toggling (JS will apply classes) */
+@keyframes slideOutLeft {
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}

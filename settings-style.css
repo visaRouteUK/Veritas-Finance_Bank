@@ -1,0 +1,397 @@
+/* --- Root Variables for Colors (Same as previous designs) --- */
+:root {
+    --color-primary: #007bff; 
+    --color-secondary: #0056b3; 
+    --color-background: #ffffff; 
+    --color-text: #333333; 
+    --color-card-bg: #f8f9fa; 
+    --color-border: #eeeeee;
+    --color-negative: #dc3545; 
+    --sidebar-width: 260px;
+}
+
+/* --- Dark Mode Variables --- */
+body.dark-mode {
+    --color-primary: #4da6ff; 
+    --color-secondary: #007bff; 
+    --color-background: #1e1e1e; 
+    --color-text: #f0f0f0; 
+    --color-card-bg: #2b2b2b; 
+    --color-border: #333333;
+}
+
+/* --- General & Layout (Reused from Dashboard) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+    transition: background-color 0.5s, color 0.5s;
+    display: flex; 
+    min-height: 100vh;
+}
+
+/* Sidebar & Content Layout (Reused) */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--color-border);
+    position: fixed; 
+    height: 100%;
+}
+.settings-content {
+    margin-left: var(--sidebar-width); 
+    padding: 20px 30px;
+    flex-grow: 1;
+}
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.sidebar-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+
+.main-nav {
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    color: var(--color-text);
+    text-decoration: none;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item i {
+    margin-right: 15px;
+    font-size: 1.1rem;
+    color: var(--color-secondary);
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.nav-item.active i, .nav-item:hover i {
+    color: white;
+}
+
+
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+}
+.mobile-menu-btn {
+    display: none; /* Hide on desktop */
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.toggle-header {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-primary);
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    background-color: transparent;
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* --- Settings Specific Grid & Cards --- */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.settings-card {
+    background-color: var(--color-background);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
+    overflow: hidden; /* Needed for smooth content reveal */
+    transition: box-shadow 0.3s;
+}
+
+.settings-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Header (Clickable Summary) */
+.card-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none; /* Hide default arrow */
+    position: relative;
+    color: var(--color-text);
+    transition: background-color 0.3s;
+}
+.card-header:hover {
+    background-color: var(--color-card-bg);
+}
+
+.card-header::after {
+    content: "\f078"; /* Unicode for fas fa-chevron-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s;
+}
+
+.settings-card[open] > .card-header::after {
+    transform: rotate(180deg);
+}
+
+.card-header i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-right: 15px;
+}
+.card-header h2 {
+    font-size: 1.25rem;
+}
+
+
+/* Card Content (Settings Items) */
+.card-content {
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.settings-card[open] .card-content {
+    animation: fadeInDown 0.4s ease-out;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--color-border);
+}
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item label {
+    font-weight: 500;
+    flex-basis: 60%;
+    color: var(--color-text);
+}
+
+.setting-item input[type="text"],
+.setting-item input[type="email"],
+.setting-item select {
+    padding: 8px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+    flex-basis: 30%;
+    transition: border-color 0.3s;
+}
+
+.setting-item select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path fill="%23007bff" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+body.dark-mode .setting-item select {
+     /* Change SVG color in dark mode (requires manual filter or separate SVG) */
+}
+
+
+/* Switch Item Layout */
+.switch-item {
+    justify-content: space-between;
+}
+.switch-item label:first-child {
+    flex-basis: auto;
+}
+.small-switch {
+    width: 40px;
+    height: 20px;
+}
+.small-switch .slider {
+    /* Adjust slider size for smaller switch */
+}
+
+
+/* --- CTA Button Styles --- */
+.cta-button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+.cta-button.secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+.cta-button.primary.large {
+    width: 100%;
+    margin-top: 5px;
+}
+.cta-button.negative {
+    background-color: var(--color-negative);
+    color: white;
+    border: none;
+}
+
+
+/* --- Footer --- */
+.app-info {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border);
+}
+.app-info p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.app-info a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+
+/* --- Animations (Reused from Dashboard) --- */
+/* Scroll-animate (Fade in on scroll) */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dropdown Content Fade-in Animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .settings-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .setting-item label {
+        flex-basis: 100%;
+    }
+    .setting-item input, .setting-item select, .edit-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .switch-item {
+        flex-direction: row;
+    }
+}

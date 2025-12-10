@@ -1,0 +1,409 @@
+/* --- Root Variables for Colors --- */
+:root {
+    --color-primary: #007bff; 
+    --color-secondary: #0056b3; 
+    --color-background: #ffffff; 
+    --color-text: #333333; 
+    --color-card-bg: #f8f9fa; 
+    --color-border: #eeeeee;
+    --color-positive: #28a745; 
+    --color-negative: #dc3545; 
+    --sidebar-width: 260px;
+}
+
+/* --- Dark Mode Variables --- */
+body.dark-mode {
+    --color-primary: #4da6ff; 
+    --color-secondary: #007bff; 
+    --color-background: #1e1e1e; 
+    --color-text: #f0f0f0; 
+    --color-card-bg: #2b2b2b; 
+    --color-border: #333333;
+}
+
+/* --- General & Layout (Reused from Dashboard) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+    transition: background-color 0.5s, color 0.5s;
+    display: flex; 
+    min-height: 100vh;
+}
+
+/* Sidebar & Dashboard Content Styles (Reused) */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--color-border);
+    position: fixed; 
+    height: 100%;
+}
+.transfers-content {
+    margin-left: var(--sidebar-width); 
+    padding: 20px 30px;
+    flex-grow: 1;
+}
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.toggle-header {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-primary);
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    background-color: transparent;
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.sidebar-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+
+.main-nav {
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    color: var(--color-text);
+    text-decoration: none;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item i {
+    margin-right: 15px;
+    font-size: 1.1rem;
+    color: var(--color-secondary);
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.nav-item.active i, .nav-item:hover i {
+    color: white;
+}
+
+
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+}
+.mobile-menu-btn {
+    display: none; /* Hide on desktop */
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* --- Main Transfer Layout --- */
+.transfer-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Transfer Form Section --- */
+.transfer-form-section {
+    background-color: var(--color-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+/* Form Tabs */
+.form-tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.tab-btn {
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.tab-btn.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+/* Form Container & Forms */
+.form-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.transfer-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Initially hide external form and position for animation */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.4s, transform 0.4s;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.transfer-form.active-form {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.form-tip {
+    color: var(--color-secondary);
+    background-color: var(--color-card-bg);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+.form-tip i {
+    margin-right: 8px;
+}
+
+/* Input Group Styles */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 12px 15px;
+}
+
+.input-group i {
+    color: var(--color-primary);
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    min-width: 100px;
+}
+
+.input-group input, .input-group select {
+    flex-grow: 1;
+    border: none;
+    padding: 8px 0;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--color-text);
+    outline: none;
+}
+
+.input-group select {
+    appearance: none; /* Remove default dropdown arrow */
+}
+
+
+/* --- CTA Button Styling (Reused) --- */
+.cta-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+    font-size: 1rem;
+}
+.cta-button.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+.cta-button.primary.large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+.cta-button.secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+
+/* --- Recent Payees Section --- */
+.recent-payees-section {
+    background-color: var(--color-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+.section-title {
+    font-size: 1.7rem;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.payee-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+.payee-card:hover {
+    background-color: var(--color-card-bg);
+}
+
+.payee-info {
+    display: flex;
+    align-items: center;
+}
+.payee-info i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-right: 15px;
+}
+.payee-info h4 {
+    font-weight: 600;
+}
+
+.cta-new-payee {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+.cta-new-payee p {
+    margin-bottom: 15px;
+}
+
+/* --- Animations (Reused from Dashboard) --- */
+/* Scroll-animate and animate-up classes (Hidden initial state) */
+.scroll-animate, .animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Active state (Visible) */
+.scroll-animate.active, .animate-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    /* Tablet */
+    .transfer-layout {
+        grid-template-columns: 1fr; /* Stack the two columns */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Layout */
+    .sidebar {
+        display: none;
+    }
+    .transfers-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    .mobile-menu-btn {
+        display: block;
+    }
+    .transfer-form-section {
+        padding: 20px;
+    }
+    .tab-btn {
+        flex-grow: 1;
+        font-size: 1rem;
+    }
+}
