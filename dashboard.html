@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas Dashboard - Overview</title>
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="light-mode">
+    
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" style="text-decoration: none;">
+        <div class="logo">Veritas Finance</div>
+        </a>
+        <nav class="main-nav">
+            <a href="dashboard.html" class="nav-item active"><i class="fas fa-home"></i> Overview</a>
+            <a href="account.html" class="nav-item"><i class="fas fa-wallet"></i> Accounts</a>
+            <a href="investments.html" class="nav-item"><i class="fas fa-chart-line"></i> Investments</a>
+            <a href="transfer.html" class="nav-item"><i class="fas fa-exchange-alt"></i> Transfers</a>
+            <a href="statement.html" class="nav-item"><i class="fas fa-file-invoice"></i> Statements</a>
+            <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <label class="toggle-switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+                <i class="fas fa-sun light-icon"></i>
+                <i class="fas fa-moon dark-icon"></i>
+            </label>
+        </div>
+    </aside>
+
+    <main class="dashboard-content" id="dashboard-content">
+        
+        <header class="topbar">
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <div class="user-info">
+                <span>Welcome back, **!984wd**</span>
+                <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            </div>
+        </header>
+
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+            <div class="mobile-menu-inner">
+                <a href="dashboard.html" class="nav-item active"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="account.html" class="nav-item"><i class="fas fa-wallet"></i> Accounts</a>
+                <a href="transfer.html" class="nav-item"><i class="fas fa-exchange-alt"></i> Transfers</a>
+                <a href="investments.html" class="nav-item"><i class="fas fa-chart-line"></i> Investments</a>
+                <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+                <button class="close-btn" id="close-mobile-menu"><i class="fas fa-times"></i> Close</button>
+            </div>
+        </div>
+
+        <section class="section-summary scroll-animate">
+            <h2 class="section-title">Account Overview</h2>
+            <div class="summary-grid">
+                <div class="summary-card animate-up primary-card">
+                    <h3>Total Balance</h3>
+                    <p class="balance-figure">$00.00</p>
+                    <div class="change-indicator positive"><i class="fas fa-arrow-up"></i> 0.0% Today</div>
+                </div>
+                <div class="summary-card animate-up">
+                    <h3>Savings Account</h3>
+                    <p>$00.00</p>
+                </div>
+                <div class="summary-card animate-up">
+                    <h3>Checking Account</h3>
+                    <p>$00.00</p>
+                </div>
+                <div class="summary-card animate-up">
+                    <h3>Monthly Spend</h3>
+                    <p class="balance-figure expense-figure">-$00.00</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section-markets scroll-animate">
+            <h2 class="section-title">Market Tracker</h2>
+            <div class="market-grid">
+                <div class="market-card animate-up">
+                    <div class="asset-info">
+                        <i class="fas fa-building icon-blue"></i>
+                        <h4>AAPL (Stock)</h4>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">$171.25</span>
+                        <span class="daily-change positive">+0.85%</span>
+                    </div>
+                </div>
+                <div class="market-card animate-up">
+                    <div class="asset-info">
+                        <i class="fab fa-bitcoin icon-blue"></i>
+                        <h4>BTC (Crypto)</h4>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">$67,120.45</span>
+                        <span class="daily-change negative">-2.11%</span>
+                    </div>
+                </div>
+                <div class="market-card animate-up">
+                    <div class="asset-info">
+                        <i class="fas fa-microchip icon-blue"></i>
+                        <h4>NVDA (Stock)</h4>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">$850.11</span>
+                        <span class="daily-change positive">+3.55%</span>
+                    </div>
+                </div>
+                <div class="market-card animate-up">
+                    <div class="asset-info">
+                        <i class="fab fa-ethereum icon-blue"></i>
+                        <h4>ETH (Crypto)</h4>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">$3,890.72</span>
+                        <span class="daily-change negative">-0.45%</span>
+                    </div>
+                </div>
+            </div>
+            <p class="disclaimer">Market prices are simulated and not real-time data.</p>
+        </section>
+
+        <hr>
+        
+        <section class="section-transactions scroll-animate">
+            <h2 class="section-title">Recent Activity</h2>
+            <div class="transaction-list">
+                 <div class="transaction-item animate-up">
+                     <div class="details">
+                        <h4>No Transactions</h4>
+                        <p>All Accounts</p>
+                    </div>
+                 </div>
+                <!-- <div class="transaction-item animate-up">
+                    <div class="icon-date">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p class="date">Dec 5</p>
+                    </div>
+                    <div class="details">
+                        <h4>Online Retailer Store</h4>
+                        <p>Checking Account</p>
+                    </div>
+                    <div class="amount negative">-$125.00</div>
+                </div>
+                <div class="transaction-item animate-up">
+                    <div class="icon-date">
+                        <i class="fas fa-receipt"></i>
+                        <p class="date">Dec 4</p>
+                    </div>
+                    <div class="details">
+                        <h4>Monthly Salary Transfer</h4>
+                        <p>Savings Account</p>
+                    </div>
+                    <div class="amount positive">+$4,500.00</div>
+                </div>
+                <div class="transaction-item animate-up">
+                    <div class="icon-date">
+                        <i class="fas fa-coffee"></i>
+                        <p class="date">Dec 3</p>
+                    </div>
+                    <div class="details">
+                        <h4>Local Cafe</h4>
+                        <p>Checking Account</p>
+                    </div>
+                    <div class="amount negative">-$5.50</div>
+                </div> -->
+            </div>
+            <button class="cta-button secondary">View All Transactions</button>
+        </section>
+    </main>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. Dark Mode Toggle Logic ---
+    const toggleSwitch = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme) {
+        body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+            toggleSwitch.checked = true;
+        }
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        body.classList.add('dark-mode');
+        toggleSwitch.checked = true;
+    } else {
+        body.classList.add('light-mode');
+    }
+
+    toggleSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+
+    // --- 2. Mobile Menu Toggle Logic (Floating Center) ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+
+    const toggleMobileMenu = () => {
+        mobileMenuOverlay.classList.toggle('visible');
+    };
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    closeMobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    
+    // Close menu if user clicks outside the inner box
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) {
+            toggleMobileMenu();
+        }
+    });
+
+
+    // --- 3. Scroll Animation Logic ---
+    const isElementInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) - 100 &&
+            rect.bottom >= 0
+        );
+    };
+
+    const handleScrollAnimation = () => {
+        const elementsToAnimate = document.querySelectorAll('.scroll-animate, .animate-up');
+        elementsToAnimate.forEach(el => {
+            if (isElementInViewport(el) && !el.classList.contains('active')) {
+                el.classList.add('active');
+            }
+        });
+    };
+
+    // Attach the scroll handler and trigger once on load
+    window.addEventListener('scroll', handleScrollAnimation);
+    handleScrollAnimation();
+});
+    </script>
+</body>
+</html>
